@@ -27,7 +27,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<LoadApiEvent>((event, emit) async {
       emit(HomeLoadingState());
       final activity = await _boredService.getBoredActivity();
-      emit(HomeLoadedState(activity.activity, activity.type, activity.participants));
+      emit(HomeLoadedState(activity.channelName, activity.channelDescription, activity.category));
     });
 
     on<NoInternetEvent>((event, emit) {
